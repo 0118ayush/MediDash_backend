@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doctor: one
+  patient: one
+  date: 2019-06-25
+  from_time: 2019-06-25 19:53:42
+  to_time: 2019-06-25 19:53:42
+  condition: MyString
+  note: MyText
+
+two:
+  doctor: two
+  patient: two
+  date: 2019-06-25
+  from_time: 2019-06-25 19:53:42
+  to_time: 2019-06-25 19:53:42
+  condition: MyString
+  note: MyText
