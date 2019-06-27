@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     resources :appointments, only: [:index, :show]
     resources :patients, only: [:index, :show]
 
+    post "/signin", to: "doctors#signin"
+  
 end
