@@ -6,5 +6,9 @@ Rails.application.routes.draw do
     resources :patients, only: [:index, :show]
 
     post "/signin", to: "doctors#signin"
-  
+    get "/validate", to: "doctors#validate"
+    get "/user", to: "doctors#user"
+    get "/appointments", to: "doctors#appointments"
+    get "/patients", to: "doctors#patients"
+
 end
