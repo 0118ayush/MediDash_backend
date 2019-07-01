@@ -51,7 +51,7 @@ class DoctorsController < ApplicationController
         end 
     end
 
-    def appointments
+    def myappointments
         doctor = current_user
         # byebug
         if doctor
@@ -61,7 +61,7 @@ class DoctorsController < ApplicationController
         end 
     end 
 
-    def patients
+    def mypatients
         doctor = current_user
         # byebug
         if doctor

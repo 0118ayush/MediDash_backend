@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post "/signin", to: "doctors#signin"
     get "/validate", to: "doctors#validate"
     get "/user", to: "doctors#user"
-    get "/appointments", to: "doctors#appointments"
-    get "/patients", to: "doctors#patients"
+    get "/myappointments", to: "doctors#myappointments"
+    get "/mypatients", to: "doctors#mypatients"
 
 end

@@ -22,7 +22,7 @@ class ApplicationController < ActionController::API
     end 
 
     def secret
-        ENV["SECRET"]
+        "secret"
     end 
 
 end
