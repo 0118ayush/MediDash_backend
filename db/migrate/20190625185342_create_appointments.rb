@@ -3,9 +3,9 @@ class CreateAppointments < ActiveRecord::Migration[5.2]
     create_table :appointments do |t|
       t.references :doctor, foreign_key: true
       t.references :patient, foreign_key: true
-      t.string :date
-      t.time :from_time
-      t.time :to_time
+      t.datetime :date
+      t.datetime :from_time
+      t.datetime :to_time
       t.string :condition
       t.text :note
 

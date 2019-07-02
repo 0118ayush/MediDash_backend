@@ -55,7 +55,7 @@ class DoctorsController < ApplicationController
         doctor = current_user
         # byebug
         if doctor
-            render json: doctor.appointments
+            render json: doctor.appointments, include: [:doctor, :patient]
         else
             render json: {error: "Token not found."}, status: 400
         end 
@@ -65,7 +65,7 @@ class DoctorsController < ApplicationController
         doctor = current_user
         # byebug
         if doctor
-            render json: doctor.patients
+            render json: doctor.patients, include: [:appointments]
         else
             render json: {error: "Token not found."}, status: 400
         end 
