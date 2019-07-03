@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 2019_06_25_185342) do
   create_table "appointments", force: :cascade do |t|
     t.integer "doctor_id"
     t.integer "patient_id"
-    t.datetime "date"
-    t.datetime "from_time"
-    t.datetime "to_time"
+    t.date "date"
+    t.time "from_time"
+    t.time "to_time"
     t.string "condition"
     t.text "note"
     t.datetime "created_at", null: false
@@ -48,15 +48,20 @@ ActiveRecord::Schema.define(version: 2019_06_25_185342) do
     t.string "first_name"
     t.string "last_name"
     t.string "DOB"
+    t.string "ethnicity"
     t.string "gender"
     t.integer "age"
     t.string "mobile"
     t.string "email"
     t.string "address"
+    t.string "city"
+    t.string "province"
+    t.string "postcode"
     t.string "marital_status"
     t.string "profile_pic"
     t.string "blood_group"
     t.string "blood_pressure"
+    t.string "initial_note"
     t.text "chronic_conditions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

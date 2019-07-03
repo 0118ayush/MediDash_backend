@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
     resources :doctors, only: [:index, :show]
     resources :appointments, only: [:index, :show, :destroy]
-    resources :patients, only: [:index, :show]
+    resources :patients, only: [:index, :show, :create]
 
     post "/signin", to: "doctors#signin"
     get "/validate", to: "doctors#validate"
