@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_06_25_185342) do
     t.time "to_time"
     t.string "condition"
     t.text "note"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
