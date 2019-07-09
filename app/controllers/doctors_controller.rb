@@ -71,4 +71,6 @@ class DoctorsController < ApplicationController
         end 
     end 
 
+    
+
 end
