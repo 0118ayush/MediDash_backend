@@ -3,7 +3,9 @@ class DoctorsController < ApplicationController
 
     def index 
         doctors = Doctor.all 
-        render json: doctors, include: :appointments
+        render json: doctors.map { |doctor| 
+            doctor.serializable_hash.merge(current_appointment: doctor.current_appointment, appointments: doctor.appointments, patients: doctor.patients)
+        }
     end
 
 
@@ -71,6 +73,6 @@ class DoctorsController < ApplicationController
         end 
     end 
 
-    
+
 
 end

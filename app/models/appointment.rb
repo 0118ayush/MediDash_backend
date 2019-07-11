@@ -34,5 +34,21 @@ class Appointment < ApplicationRecord
     appointments
   end 
 
+  def self.availableDoctorAppointments 
+   available_doctors = self.todays_appointments.select{|appointment| appointment.date == Date.today && 
+      appointment.from_time.hour < Time.new.hour && 
+      appointment.to_time.hour > Time.new.hour && 
+
+      if appointment.from_time.hour ==  Time.new.hour 
+          appointment.from_time.min < Time.new.min
+      elsif appointment.to_time.hour == Time.new.hour 
+          appointment.to_time.min > Time.new.min
+      end
+  }
+    available_doctors
+  end 
+
+  
+
 
 end

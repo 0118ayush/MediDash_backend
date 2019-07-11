@@ -4,30 +4,28 @@ class Doctor < ApplicationRecord
     has_many :patients, through: :appointments
 
 
-    def is_available
-        current_appointment = self.appointments.find{|appointment| appointment.date == Date.today && 
-            appointment.from_time.hour < Time.new.hour && 
-            appointment.to_time.hour > Time.new.hour && 
+    def current_appointment
+        current_appointment = self.appointments.find do |appointment| 
+            start_time_with_date = Time.parse(appointment.from_time.to_s)
+            end_time_with_date = Time.parse(appointment.to_time.to_s)
 
-            if appointment.from_time.hour ==  Time.new.hour 
-                appointment.from_time.min < Time.new.min
-            elsif appointment.to_time.hour == Time.new.hour 
-                appointment.to_time.min > Time.new.min
-            end
-            # appointment.from_time.min < Time.new.min && 
-            # appointment.to_time.hour >= Time.new.hour
-        }
-        !current_appointment
+
+            start_time = start_time_with_date.strftime("%H%M") #=> '04:00:00'
+            end_time = end_time_with_date.strftime("%H%M") #=> '11:58:07'
+
+            current_time = Time.now.strftime("%H%M") #=> '01:45:27' (my current time)
+
+            appointment.date == Date.today && current_time.between?(start_time, end_time) #=> false
+        end
+        current_appointment
     end
 
-    def working_today 
+    # def working_today 
     #     self.appointments.find{|appointment| appointment.date == Date.today}
-        # Doctor.all.select(|doctor| doctor.working_today)
+    #     Doctor.all.select(|doctor| doctor.working_today)
 
-        # self.appointments.select{|doctor| doctor.appointments.}
-    end
-
-
+    #     self.appointments.select{|doctor| doctor.appointments.}
+    # end
 
     def self.departments
         self.all.map{|d| d.department}.uniq

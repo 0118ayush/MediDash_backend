@@ -18,7 +18,7 @@ class AppointmentsController < ApplicationController
     def create 
         appointment = Appointment.new(appointment_params)
         if appointment.save
-            render json: appointment 
+            render json: appointment, include: [:patient]
         else 
             render json: {error: "Difficulty saving the Appointment, please check your information."}, status: 420
         end 
